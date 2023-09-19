@@ -9,12 +9,12 @@
   <ItemGroup>
     <PackageReference Include="AutoMapper" Version="12.0.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
-    <PackageReference Include="FluentValidation" Version="11.6.0" />
-    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.6.0" />
+    <PackageReference Include="FluentValidation" Version="11.7.1" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.7.1" />
     <PackageReference Include="MediatR" Version="11.1.0" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
     <PackageReference Include="Microsoft.Extensions.Caching.Abstractions" Version="7.0.0" />
-    <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="7.0.10" />
+    <PackageReference Include="Microsoft.Extensions.Caching.StackExchangeRedis" Version="7.0.11" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
   </ItemGroup>
 
@@ -30,8 +30,24 @@
     <Folder Include="Features\Properties\Commands\" />
     <Folder Include="Features\Properties\Queries\" />
     <Folder Include="MappingProfiles\" />
+    <Folder Include="Dto\Property\" />
+    <Folder Include="Dto\Image\" />
+    <Folder Include="Features\Images\Commands\" />
+    <Folder Include="Features\Images\Queries\" />
+    <Folder Include="PipelineBehaviours\" />
+    <Folder Include="Exceptions\" />
+    <Folder Include="Features\Properties\Validators\" />
+    <Folder Include="Dto\Common\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="MappingProfiles\" />
+    <None Remove="Dto\Property\" />
+    <None Remove="Dto\Image\" />
+    <None Remove="Features\Images\Commands\" />
+    <None Remove="Features\Images\Queries\" />
+    <None Remove="PipelineBehaviours\" />
+    <None Remove="Exceptions\" />
+    <None Remove="Features\Properties\Validators\" />
+    <None Remove="Dto\Common\" />
   </ItemGroup>
 </Project>

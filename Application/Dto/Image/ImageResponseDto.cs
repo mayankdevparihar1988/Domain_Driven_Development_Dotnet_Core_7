@@ -1,14 +1,15 @@
 ﻿using System;
-namespace Domain
+
+namespace Application.Dto.Image
 {
-    public class Image
+    public class ImageResponseDto
     {
         public int Id { get; set; }
+        public int PropertyId { get; set; }
         public string Name { get; set; }
         public string Path { get; set; }
         public bool IsUploaded { get; set; }
-
-        public int PropertyId { get; set; }
-        public Property Property { get; set; }
+        public PropertyResponseDto Property { get; set; }
     }
 }
+

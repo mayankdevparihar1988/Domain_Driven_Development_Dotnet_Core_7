@@ -2,6 +2,7 @@
 using AutoMapper;
 using Domain;
 using Application.Dto;
+using Application.Dto.Image;
 
 namespace Application.MappingProfiles
 {
@@ -10,6 +11,10 @@ namespace Application.MappingProfiles
         public Mappings()
         {
             CreateMap<NewPropertyRequest, Property>();
+            CreateMap<Property, PropertyResponseDto>();
+
+            CreateMap<NewImageRequestDto, Image>();
+            CreateMap<Image, ImageResponseDto>();
 
         }
     }

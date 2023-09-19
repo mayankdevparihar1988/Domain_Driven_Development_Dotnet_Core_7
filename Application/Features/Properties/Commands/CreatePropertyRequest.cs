@@ -35,6 +35,8 @@ namespace Application.Features.Properties.Commands
         {
             Property property = _mapper.Map<Property>(request._newProperty);
 
+            property.ListDate = DateTime.Now;
+
             await _propertyRepo.AddNewAsync(property);
 
             return true;
