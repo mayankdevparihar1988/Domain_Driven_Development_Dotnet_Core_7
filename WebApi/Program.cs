@@ -1,6 +1,7 @@
 ﻿
 using Application;
 using Infrastructure;
+using WebApi;
 using WebApi.Middlewares;
 
 
@@ -18,6 +19,15 @@ builder.Services.AddApplicationServices();
 
 builder.Services.AddInfrastructureServices(builder.Configuration);
 
+var cacheSettings = builder.Services.GetCacheSettings(builder.Configuration);
+
+//Configure Redis
+
+builder.Services.AddStackExchangeRedisCache(options =>
+{
+    options.Configuration = cacheSettings.DestinationUrl;
+});
+
 var app = builder.Build();
 
 // Global ErrorHandler
@@ -28,7 +38,7 @@ app.UseGlobalErrorHandling();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(option => option.DisplayRequestDuration());
 }
 
 app.UseHttpsRedirection();

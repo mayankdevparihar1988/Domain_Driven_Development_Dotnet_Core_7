@@ -38,6 +38,7 @@
     <Folder Include="Exceptions\" />
     <Folder Include="Features\Properties\Validators\" />
     <Folder Include="Dto\Common\" />
+    <Folder Include="PipelineBehaviours\Contract\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="MappingProfiles\" />
@@ -49,5 +50,6 @@
     <None Remove="Exceptions\" />
     <None Remove="Features\Properties\Validators\" />
     <None Remove="Dto\Common\" />
+    <None Remove="PipelineBehaviours\Contract\" />
   </ItemGroup>
 </Project>

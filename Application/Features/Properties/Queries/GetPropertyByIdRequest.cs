@@ -1,17 +1,22 @@
 ﻿using System;
 using Application.Dto;
+using Application.PipelineBehaviours.Contract;
 using Application.Repositories;
 using AutoMapper;
 using MediatR;
 namespace Application.Features.Properties.Queries
 {
-	public class GetPropertyByIdRequest : IRequest<PropertyResponseDto>
+	public class GetPropertyByIdRequest : IRequest<PropertyResponseDto>, ICacheable
 	{
 		public int _Id { get; set; }
+        public string CacheKey { get; set; }
+        public bool BypassCache { get; set; }
+        public TimeSpan SlidingExpiration { get; set; }
 
-		public GetPropertyByIdRequest( int Id)
+        public GetPropertyByIdRequest( int Id)
 		{
 			_Id = Id;
+			CacheKey = $"GetPropertyById:{_Id}";
 		}
 	}
 
