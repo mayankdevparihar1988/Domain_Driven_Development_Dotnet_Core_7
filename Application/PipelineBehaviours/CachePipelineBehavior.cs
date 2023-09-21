@@ -54,7 +54,8 @@ namespace Application.PipelineBehaviours
 
                 if (response != null)
                 {
-                    var slidingExpiration = request?.SlidingExpiration == null ?
+                    var slidingExpiration = request?.SlidingExpiration ==
+                       TimeSpan.Zero?
                         TimeSpan.FromMinutes(_cacheSettings.SlidingExpiration)
                         : request.SlidingExpiration;
 

@@ -5,7 +5,7 @@ namespace WebApi
 {
 	public static class ServiceCollectionExtensions
 	{
-        public static CacheSettings GetCacheSettings(this IServiceCollection services, IConfiguration configuration)
+        public static CacheSettings? GetCacheSettings(this IServiceCollection services, IConfiguration configuration)
         {
             var cacheSettingConfigurations = configuration.GetSection("CacheSettings");
 

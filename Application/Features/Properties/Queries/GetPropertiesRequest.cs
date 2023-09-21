@@ -11,8 +11,10 @@ namespace Application.Features.Properties.Queries
     {
         public GetPropertiesRequest()
         {
+
             CacheKey = "GetProperties";
-                }
+
+        }
 
         public string CacheKey { get; set; }
         public bool BypassCache { get; set; }

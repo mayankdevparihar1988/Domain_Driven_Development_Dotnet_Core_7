@@ -25,7 +25,7 @@ var cacheSettings = builder.Services.GetCacheSettings(builder.Configuration);
 
 builder.Services.AddStackExchangeRedisCache(options =>
 {
-    options.Configuration = cacheSettings.DestinationUrl;
+    options.Configuration = cacheSettings?.DestinationUrl;
 });
 
 var app = builder.Build();
