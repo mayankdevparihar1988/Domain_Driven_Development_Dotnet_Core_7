@@ -6,14 +6,16 @@ using MediatR;
 
 namespace Application.Features.Images.Commands
 {
-        public class DeleteImageRequest : IRequest<bool>, IValidateable
+        public class DeleteImageRequest : IRequest<bool>, IValidateable, ICacheRemoval
         {
             public int ImageId { get; set; }
+        public List<string> CacheKeys { get; set; }
 
-            public DeleteImageRequest(int imageId)
+        public DeleteImageRequest(int imageId)
             {
                 ImageId = imageId;
-            }
+            CacheKeys = new() { $"GetImageById:{ImageId}", "GetImages" };
+        }
         }
 
         public class DeleteImageRequestHandler : IRequestHandler<DeleteImageRequest, bool>

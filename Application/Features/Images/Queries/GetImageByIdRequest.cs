@@ -9,7 +9,7 @@ using System.Security.Cryptography;
 
 namespace Application.Features.Images.Queries
 {
-        public class GetImageByIdRequest : IRequest<ImageResponseDto>, ICacheable
+        public class GetImageByIdRequest : IRequest<ImageResponseDto>, ICacheable, ILogging
         {
 
             public int ImageId { get; set; }

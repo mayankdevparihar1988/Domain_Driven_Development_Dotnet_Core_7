@@ -16,7 +16,8 @@ namespace Application
                   .AddMediatR(Assembly.GetExecutingAssembly())
                   .AddValidatorsFromAssembly(Assembly.GetExecutingAssembly())
                   .AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationPipelineBehaviour<,>))
-                  .AddTransient(typeof(IPipelineBehavior<,>), typeof(CachePipelineBehavior<,>));
+                  .AddTransient(typeof(IPipelineBehavior<,>), typeof(CachePipelineBehavior<,>))
+                  .AddTransient(typeof(IPipelineBehavior<,>), typeof(LoggingPipelineBehaviour<,>));
 
         }
 	}

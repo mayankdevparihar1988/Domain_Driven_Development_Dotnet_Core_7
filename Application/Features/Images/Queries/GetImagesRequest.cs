@@ -8,7 +8,7 @@ using MediatR;
 
 namespace Application.Features.Images.Queries
 {
-    public class GetImagesRequest : IRequest<List<ImageResponseDto>>, ICacheable
+    public class GetImagesRequest : IRequest<List<ImageResponseDto>>, ICacheable, ILogging
     {
         public string CacheKey { get; set; }
         public bool BypassCache { get; set; }

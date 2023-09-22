@@ -7,14 +7,16 @@ using Domain;
 using MediatR;
 namespace Application.Features.Properties.Commands
 {
-	public class DeletePropertyRequest : IRequest<int>, IValidateable
-	{
+	public class DeletePropertyRequest : IRequest<int>, IValidateable,ICacheRemoval
+    {
         public int _id { get; set; }
+        public List<string> CacheKeys { get; set; }
 
         public DeletePropertyRequest( int id)
         {
 			_id = id;
-		}
+            CacheKeys = new() { $"GetPropertyById:{id}", "GetProperties" };
+        }
     }
 
     public class DeletePropertyHandler : IRequestHandler<DeletePropertyRequest, int>
