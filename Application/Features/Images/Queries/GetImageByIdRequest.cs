@@ -4,17 +4,24 @@ using Application.Dto.Image;
 using AutoMapper;
 using MediatR;
 using Domain;
+using Application.PipelineBehaviours.Contract;
+using System.Security.Cryptography;
 
 namespace Application.Features.Images.Queries
 {
-        public class GetImageByIdRequest : IRequest<ImageResponseDto>
+        public class GetImageByIdRequest : IRequest<ImageResponseDto>, ICacheable
         {
+
             public int ImageId { get; set; }
+            public string CacheKey { get; set; }
+            public bool BypassCache { get; set; }
+            public TimeSpan SlidingExpiration { get; set; }
 
             public GetImageByIdRequest(int imageId)
-            {
-                ImageId = imageId;
-            }
+                {
+                    ImageId = imageId;
+                    CacheKey = $"GetImageById:{ImageId}";
+        }
         }
 
         public class GetImageByIdRequestHandler : IRequestHandler<GetImageByIdRequest, ImageResponseDto>

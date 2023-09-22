@@ -39,6 +39,8 @@
     <Folder Include="Features\Properties\Validators\" />
     <Folder Include="Dto\Common\" />
     <Folder Include="PipelineBehaviours\Contract\" />
+    <Folder Include="Features\Properties\Validators\PropertyValidator\" />
+    <Folder Include="Features\Properties\Validators\ImageValidator\" />
   </ItemGroup>
   <ItemGroup>
     <None Remove="MappingProfiles\" />
@@ -51,5 +53,7 @@
     <None Remove="Features\Properties\Validators\" />
     <None Remove="Dto\Common\" />
     <None Remove="PipelineBehaviours\Contract\" />
+    <None Remove="Features\Properties\Validators\PropertyValidator\" />
+    <None Remove="Features\Properties\Validators\ImageValidator\" />
   </ItemGroup>
 </Project>

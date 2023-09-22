@@ -4,10 +4,11 @@ using Application.Dto;
 using Application.Repositories;
 using AutoMapper;
 using Domain;
+using Application.PipelineBehaviours.Contract;
 
 namespace Application.Features.Properties.Commands
 {
-	public class CreatePropertyRequest : IRequest<bool>
+	public class CreatePropertyRequest : IRequest<bool>, IValidateable
 	{
 		public NewPropertyRequest _newProperty { get; set; }
 

@@ -4,9 +4,11 @@ using Application.Dto.Image;
 using Application.Repositories;
 using AutoMapper;
 using MediatR;
+using Application.PipelineBehaviours.Contract;
+
 namespace Application.Features.Images.Commands
 {
-	public class CreateImageRequest : IRequest<bool>
+	public class CreateImageRequest : IRequest<bool>, IValidateable
 	{
 
 		public NewImageRequestDto _newImageRequestDto { get; set; }

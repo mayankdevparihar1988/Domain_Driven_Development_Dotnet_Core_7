@@ -1,5 +1,6 @@
 ﻿using System;
 using Application.Dto.Image;
+using Application.PipelineBehaviours.Contract;
 using Application.Repositories;
 using AutoMapper;
 using Domain;
@@ -7,8 +8,16 @@ using MediatR;
 
 namespace Application.Features.Images.Queries
 {
-    public class GetImagesRequest : IRequest<List<ImageResponseDto>>
+    public class GetImagesRequest : IRequest<List<ImageResponseDto>>, ICacheable
     {
+        public string CacheKey { get; set; }
+        public bool BypassCache { get; set; }
+        public TimeSpan SlidingExpiration { get; set; }
+
+        public GetImagesRequest()
+        {
+            CacheKey = "GetImages";
+        }
     }
 
     public class GetImagesRequestHandler : IRequestHandler<GetImagesRequest, List<ImageResponseDto>>

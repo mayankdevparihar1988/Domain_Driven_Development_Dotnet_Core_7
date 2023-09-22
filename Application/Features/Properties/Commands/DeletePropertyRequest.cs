@@ -1,12 +1,13 @@
 ﻿using System;
 using Application.Dto;
+using Application.PipelineBehaviours.Contract;
 using Application.Repositories;
 using AutoMapper;
 using Domain;
 using MediatR;
 namespace Application.Features.Properties.Commands
 {
-	public class DeletePropertyRequest : IRequest<int>
+	public class DeletePropertyRequest : IRequest<int>, IValidateable
 	{
         public int _id { get; set; }
 

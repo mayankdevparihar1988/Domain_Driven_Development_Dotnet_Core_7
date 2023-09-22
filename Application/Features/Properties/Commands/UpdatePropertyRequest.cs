@@ -4,10 +4,11 @@ using MediatR;
 using Application.Dto;
 using Application.Repositories;
 using AutoMapper;
+using Application.PipelineBehaviours.Contract;
 
 namespace Application.Features.Properties.Commands
 {
-	public class UpdatePropertyRequest : IRequest<bool>
+	public class UpdatePropertyRequest : IRequest<bool>, IValidateable
 	{
 		public UpdatePropertyRequestDto _updatePropertyRequestDto { get; set; }
 

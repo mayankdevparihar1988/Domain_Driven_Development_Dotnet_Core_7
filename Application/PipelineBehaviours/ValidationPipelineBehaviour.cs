@@ -2,13 +2,14 @@
 
 using System;
 using Application.Exceptions;
+using Application.PipelineBehaviours.Contract;
 using FluentValidation;
 using MediatR;
 namespace Application.PipelineBehaviours
 {
     public class ValidationPipelineBehaviour< TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
-        where TRequest: IRequest<TResponse>
-	{
+        where TRequest: IRequest<TResponse>, IValidateable
+    {
         private readonly IEnumerable<IValidator<TRequest>> _validators;
 
         public ValidationPipelineBehaviour(IEnumerable<IValidator<TRequest>> validators)

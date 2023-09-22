@@ -1,11 +1,12 @@
 ﻿using System;
+using Application.PipelineBehaviours.Contract;
 using Application.Repositories;
 using Domain;
 using MediatR;
 
 namespace Application.Features.Images.Commands
 {
-        public class DeleteImageRequest : IRequest<bool>
+        public class DeleteImageRequest : IRequest<bool>, IValidateable
         {
             public int ImageId { get; set; }
 
